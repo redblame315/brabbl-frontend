@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  position: static;
+}
+
+& {
+  line-height: 1.4em;
+  font-size: 12px;
+  font-family: $font-family-2 !important;
+  color: $text-color;
+  margin: 5px 0 25px 0;
+  max-width: 100%;
+}
+
+body {
+  font-weight: normal;
+}
+
+p {
+  font-family: $font-family-2;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $black;
+  }
+
+  &.active {
+    color: $black;
+  }
+}
+
+.brabbl-link {
+  color: $base-color;
+  font-size: 1.2em;
+}
+
+.color-pos {
+  color: $label-rating-positive;
+}
+
+.color-neg {
+  color: $label-rating-negative;
+}
+
+h1 {
+    font-size: 2.27em;
+    font-weight: normal;
+    font-family: $font-family-2;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: normal;
+    font-family: $font-family-1;
+    line-height: 1em;
+}
+
+.spinner {
+  text-align: center;
+  position: relative;
+  top: 20px;
+  font-size: 5em;
+  color: $medium-grey;
+}
+.media {
+  .video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+    iframe {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    }
+  }
+  img {
+    width: 100%;
+  }
+  .copyright {
+    text-align: right;
+    font-weight: bold;
+  }
+}
+
+.footer-links {
+  border-top: 2px solid $medium-grey;
+  margin-top: 1.33em;
+  padding-top: 0.53em;
+  height: 50px;
+  .powered-by {
+    color: $dark-grey;
+    font-size: 1.07em;
+    line-height: 1.5em;
+    float: right;
+
+    a, a:hover {
+      color: $dark-grey;
+    }
+  }
+  .version {
+    margin-top: 0px;
+    font-size: 6px;
+    padding: 0px;
+    line-height: 12px;
+    text-align: right;
+    color: $black
+  }
+}
+
+
+iframe {
+  border: none;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: $black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 12px;
+  top: 20px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.removable-item {
+  .tooltip {
+    .tooltiptext {
+      top: 4px;
+      left: 20px;
+    }
+  }
+}
+.image-media {
+  border-radius: 6px;
+}
+
+.media-modal {
+  .image-media {
+    border-radius: 0px;
+  }
+}
+
+@keyframes fadeInImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.img-loading {
+  opacity: 0;
+  width: 100%;
+  height: auto;
+}
+
+.img-loaded {
+  animation: fadeInImg cubic-bezier(0.23, 1, 0.32, 1) 1;
+  position: relative;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 0.7s;
+  animation-delay: 0.1s;
+}

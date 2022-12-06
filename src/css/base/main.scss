@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'colors';
+@import 'mixins';
+@import 'modules/modal';
+@import 'modules/alert';
+
+#brabbl-widget,
+.ReactModal__Overlay {
+  @import 'normalize';
+  @import 'base';
+  @import 'modules/barometer';
+  @import 'modules/discussion';
+  @import 'modules/discussion-list';
+  @import 'modules/statement-list';
+  @import 'modules/discussion-participant';
+  @import 'modules/arguments';
+  @import 'modules/forms';
+  @import 'modules/star-ratings';
+  @import 'modules/toggle';
+  @import 'modules/messages';
+  @import 'modules/dropdown';
+  @import 'modules/tags';
+  @import 'modules/view';
+  @import 'modules/pagination';
+}
+
+#brabbl-widget {
+  background-color: $widget-background-color;
+  border-radius: $modal-border-radius;
+  font-weight: 400;
+  padding: 16px;
+  @include bp-small-medium {
+    padding: 8px;
+  }
+}

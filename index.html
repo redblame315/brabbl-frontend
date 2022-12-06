@@ -1,0 +1,24 @@
+<!-- This is just a demo website for making it easy to start with brabbl development. -->
+<!-- Here you can test, how the brabbl discussion widget would look like, when it's embedded in a (simple) website. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brabbl</title>
+  </head>
+  <body>
+    <p>Below this simple paragraph, there should be the faboulous 'brabbl' widget, showing a discussion with externalID 'demo-discussion-1' (customer 'brabbl-dev-customer-1').</p>
+    
+    <div id="brabbl-widget"></div>
+    <script>
+      var brabbl = window.brabbl || {};
+      brabbl.customerId = "brabbl-dev-customer-1";  //  needs to match the embed token for a customer in the backend
+      brabbl.articleId = "demo-discussion-1"; // needs to match the external id of a discussion of the selected customer
+      brabbl.defaultTags = ['foo','bar'];
+      <!--brabbl.view = "list";-->
+    </script>
+    <script src="http://localhost:8080/dist/js/brabbl.dev.js" charset="utf-8"></script>
+  </body>
+</html>

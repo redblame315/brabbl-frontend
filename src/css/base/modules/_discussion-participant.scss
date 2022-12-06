@@ -1,0 +1,56 @@
+.participant-section {
+  border-bottom: 1px solid $dark-grey;
+  margin-bottom: 24px;
+}
+.manage-participant {
+  .collapsable-section {
+    .collapsable-section-title {
+      h2 {
+        font-size: 14px;
+      }
+      .icon {
+        font-size: 20px;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+.participant-names {
+  font-style: italic;
+  font-size: 14px;
+}
+.participant-list {
+  margin-top: 32px;
+  .participant-checkbox {
+    width: 32px;
+    color: #9BCF67;
+  }
+  .participant-item {
+    margin-left: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .avatar-non-select {
+      opacity: 0.8;
+    }
+    .participant-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-items: left;
+      margin-top: 4px;
+      margin-left: 4px;
+      .name {
+        font-size: 12px;
+        font-weight: normal;
+      }
+      .email {
+        margin-top: -6px;
+        font-size: 11px;
+      }
+      .selected {
+        color: $black;
+      }
+    }
+  }
+}

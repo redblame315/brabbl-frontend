@@ -1,0 +1,72 @@
+# ------------------------- Linux
+*~
+
+# KDE
+.directory
+
+# ------------------------- OSX
+.DS_Store
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# ------------------------- vim
+.*.sw[a-z]
+*.un~
+Session.vim
+
+
+# ------------------------- Python
+*.py[co]
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+coverage
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+#Translations
+*.mo
+
+
+# ------------------------ Django
+*.log
+*.pot
+*.pyc
+settings_local.py
+
+# ------------------------ Custom
+.cache
+.tmp
+*.sqlite3
+htmlcov
+node_modules
+frontend/lib
+docs/build
+*.orig
+*.sql
+*.tox/*
+media
+*.log
+npm-debug*
+.idea
+package-backup.json

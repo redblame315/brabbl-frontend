@@ -1,0 +1,479 @@
+button {
+  background-color: $dark-grey;
+  border: 1px solid $dark-grey;
+  padding: 12px;
+  font-weight: bold;
+  color: $white;
+  font-size: 14px;
+
+  &.primary {
+    background-color: $base-color;
+    color: $white;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+  .progress {
+    font-weight: normal;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: darken($dark-grey, 5%);
+  }
+}
+
+/*
+  Full screen forms
+*/
+
+.fullform-header {
+  border-bottom: 2px solid $dark-grey;
+  text-align: center;
+  h1, h2 {
+    font-family: $font-family-1;
+  }
+  p {
+    font-family: $font-family-1;
+    color: $dark-grey;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.2em;
+    @include bp-small-medium {
+      font-size: 1em;
+      line-height: 1.2em;
+    }
+    @include bp-medium {
+      font-size: 1em;
+      line-height: 1.2em;
+    }
+  }
+  div {
+    font-family: $font-family-1;
+  }
+
+  &.login-header {
+    h1,h2,p {
+      color: $black;
+    }
+    margin-bottom: 30px;
+    border: none;
+    .login-text {
+      font-size: 1.4em;
+      text-align: left;
+    }
+  }
+}
+
+.fullform-body {
+  font-size: 1.33em;
+  padding-top: 20px;
+  &.login-body {
+    padding-top: 0px;
+  }
+  label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-weight: normal;
+  }
+  p {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 5px;
+    font-weight: normal;
+    margin-top: 0px !important;
+  }
+  .section-title {
+    font-size: 1.5em;
+    color: $black;
+  }
+
+  .optionsForm input {
+    margin-right: 5px;
+  }
+
+  .helpText {
+    color: $dark-grey;
+    font-size: 0.8em;
+  }
+
+  .collapsable-section-title {
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 0;
+      color: $black;
+      &:before {
+        font-family: $font-family-icons;
+        margin-right: 10px;
+        color: $dark-grey;
+      }
+      .icon {
+        margin-right: 18px;
+      }
+    }
+  }
+  .collapsable-section {
+    .hidden {
+      display: none;
+    }
+  }
+  .fullform-section {
+    margin: 1em 0;
+    margin-bottom: 2em;
+    h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      border-bottom: 2px solid $dark-grey;
+      line-height: 2;
+
+      &:before {
+        font-family: $font-family-icons;
+        margin-right: 10px;
+        color: $dark-grey;
+      }
+    }
+
+    .rdtOpen .rdtPicker{
+      position: absolute;
+    }
+
+
+    &.optionsForm {
+      .row > label {
+        font-weight: bold;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-bottom: 2px solid $dark-grey;
+        line-height: 2;
+        margin-bottom: 15px;
+
+        &:before {
+          font-family: $font-family-icons;
+          color: $dark-grey;
+          margin-right: 10px;
+          content: "\F013";
+        }
+      }
+    }
+
+    &.createDiscussionForm {
+      min-height: 200px;
+    }
+
+    &.createDiscussionForm h2:before {
+      content: "\F040";
+    }
+
+    &.optionsForm h2:before {
+      content: "\F013";
+    }
+    &.statementForm {
+      h2 {
+        color: $dark-grey;
+      }
+      h2:before {
+        content: "\F15B";
+      }
+      .avatar-section canvas {
+        margin: 0;
+      }
+    }
+    .help-text {
+      font-size: 0.8em;
+    }
+  }
+  .media-switcher {
+    margin-top: 20px;
+    button i {
+      font-size: 1.8em;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    button.active {
+      border: 1px solid $black;
+      color: $black;
+      background-color: darken($white, 5%);
+    }
+    .button-media-video {
+      float: right;
+    }
+    @include bp-small-medium {
+      button {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+    }
+
+  }
+
+  input,
+  textarea,
+  select {
+    margin: 0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  input[type=text],
+  input[type=url],
+  input[type=email],
+  input[type=password],
+  textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid $medium-grey;
+    -webkit-box-shadow: inset 0px 1px 3px  rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 0px 1px 3px  rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.5);
+    
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  select {
+    background-color: transparent;
+    width: 100%;
+    padding: 15px 10px;
+    border: 0;
+    border-top: 2px solid $light-grey;
+    border-bottom: 2px solid $light-grey;
+
+    option {
+      background-color: transparent;
+      padding: 10px;
+    }
+  }
+  .item-label {
+    margin-bottom: 5px;
+  }
+  .row {
+    position: relative;
+    margin: 2em 0;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding-top: 1em;
+
+      li {
+        margin-bottom: 1em;
+        margin-left: 2em;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .errorlist {
+      position: absolute;
+      width: 100%;
+      right: 0;
+      margin: 0;
+
+      li {
+        color: $base-color;
+        font-size: 0.8em;
+        text-align: right;
+
+        padding: 0.5em 0;
+      }
+    }
+
+    &.err {
+      padding-bottom: 1em;
+
+      input,
+      textarea {
+        border-color: $base-color;
+      }
+    }
+  }
+
+  .error {
+    font-size: 0.9em;
+    margin-bottom: 2em;
+  }
+
+  .errorlist {
+    font-size: 0.9em;
+    padding: 0;
+    color: $base-color;
+    list-style: none;
+  }
+  .errorcheckbox {
+    width: 13px;
+    margin-top: 0px;
+    margin-left: 0px;
+    height: 13px;
+    border-radius: 2px;
+    border: 1px solid $base-color;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;
+  }
+}
+
+.fullform-footer {
+  padding-top: 44px;
+  border-top: 1px solid $dark-grey;
+  button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &.login-footer {
+    margin-top: 50px;
+    button {
+      width: 49%;
+      &.right-button {
+        float: right;
+      }
+    }
+  }
+}
+
+.forgot-password-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.avatar-section {
+  canvas {
+    background-color: #E4E4E4;
+    margin: 0px;
+    margin-left: 0px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0px 1px 3px  rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 0px 1px 3px  rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.5);
+    @include bp-small-medium {
+    }
+  }
+  button {
+    margin-top: 8px;
+    width: 370px;
+    @include bp-small-medium {
+      width: 100%;
+    }
+  }
+}
+
+.pdf-section {
+  .removable-list {
+    padding: 16px 16px;
+    width: 370px;
+    max-width: 370px;
+    border-radius: 4px;
+    background-color: white;
+    -webkit-box-shadow: inset 0px 1px 3px  rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: inset 0px 1px 3px  rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 14px;
+    @include bp-small-medium {
+      width: 100%;
+    }
+    .removable-item {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    a {
+      padding: 8px 0px;
+      color: $black;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    a:hover {
+      color: $base-color;
+    }
+  }
+  button {
+    width: 370px;
+    @include bp-small-medium {
+      width: 100%;
+    }
+  }
+}
+
+.file-section {
+  border: 1px solid #cccccc;
+  background-color: #f4f4f4;
+  margin: 10px;
+  margin-left: 0px;
+  width: 300px;
+  height: 200px;
+  max-width: 350px;
+  max-height: 280px;
+  @include bp-small-medium {
+    width: 100%;
+  }
+}
+
+.helpText,
+.help-text {
+  color: $dark-grey;
+}
+
+.social-login {
+  text-align: center;
+  font-size: 1.6em;
+  div {
+    padding-bottom: 20px;
+  }
+  a img {
+    width: 72px;
+    height: 72px;
+    &:hover {
+      opacity: 0.8;
+    }
+    @include bp-small-medium {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .alternate-login {
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid $light-grey;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    color: $dark-grey;
+
+    span{
+      background:#fff;
+      padding:0 10px;
+    }
+  }
+
+}
+.choice-description {
+  font-size: 12px;
+  margin-top: 4px;
+  margin-left: 22px;
+  color: $black;
+}
+
+::placeholder {
+  color: $dark-grey;
+  font-size: 1em;
+}
+
+input[id^="start_time_datetime"]::placeholder{
+  color: $black
+}
+input[id^="end_time_datetime"]::placeholder{
+  color: $black
+}

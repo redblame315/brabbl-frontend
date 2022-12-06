@@ -1,0 +1,34 @@
+@import '../base/colors.scss';
+
+$base-color:    #3f3f3f;
+$text-color:    $black;
+$link-color:    $dark-grey;
+$hover-color:   $dark-grey;
+
+$bar-positive1: #49D02EB2;
+$bar-positive2: #49D02E80;
+$bar-positive3: #49D02E33;
+$bar-neutral:   #D8D8D8;
+$bar-negative3: #FF751A33;
+$bar-negative2: #FF751A80;
+$bar-negative1: #FF751AB2;
+
+$font-family-1: Roboto, serif;
+$font-family-2:  Roboto, sans-serif;
+$font-family-icons: FontAwesome;
+
+$label-rating-positive: $bar-positive1;
+$label-rating-negative: $bar-negative1;
+$rating-star-rated: $dark-grey;
+$rating-star-active: $base-color;
+$rating-star-base: #e3e3e3;
+$rating-average-label: $dark-grey;
+$argument-list-header-text-transform: uppercase;
+$argument-list-header-color: black;
+$barometer-background-color: $light-grey;
+$barometer-bottom-splitter-color: $dark-grey;
+
+$discussion-title-color: $text-color;
+$list-entry-title-color: $text-color;
+
+@import '../base/main.scss';

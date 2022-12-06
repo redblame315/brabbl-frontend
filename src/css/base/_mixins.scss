@@ -1,0 +1,108 @@
+// Media query generator - copied from https://github.com/paranoida/sass-mediaqueries
+@mixin mq($args...) {
+  $media-type: 'only screen';
+  $media-type-key: 'media-type';
+  $args: keywords($args);
+  $expr: '';
+
+  @if map-has-key($args, $media-type-key) {
+    $media-type: map-get($args, $media-type-key);
+    $args: map-remove($args, $media-type-key);
+  }
+
+  @each $key, $value in $args {
+    @if $value {
+      $expr: "#{$expr} and (#{$key}: #{$value})";
+    }
+  }
+
+  @media #{$media-type} #{$expr} {
+    @content;
+  }
+}
+
+@mixin bp-large {
+  @include mq($min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin bp-ml-large {
+  @include mq($min-width: $breakpoint-ml) {
+    @content;
+  }
+}
+
+@mixin bp-ml {
+  @include mq($min-width: $breakpoint-ml, $max-width: $breakpoint-large - 1px) {
+    @content;
+  }
+}
+
+@mixin bp-medium-large{
+  @include mq($min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @include mq($min-width: $breakpoint-medium, $max-width: $breakpoint-large - 1px) {
+    @content;
+  }
+}
+
+@mixin bp-small-medium {
+  @include mq($max-width: $breakpoint-ml - 1px) {
+    @content;
+  }
+}
+
+@mixin bp-small{
+  @include mq($max-width: $breakpoint-small) {
+    @content;
+  }
+}
+
+%clearfix {
+  *zoom: 1;
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin fadeIn($duration: 200ms) {
+  opacity: 0;
+  transition: opacity $duration ease-in-out;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin tooltip-arrow($color: $black, $size: 5px) {
+  &:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-top-color: $color;
+    border-width: $size;
+    margin-left: -$size;
+  }
+
+}

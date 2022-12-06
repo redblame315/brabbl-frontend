@@ -1,0 +1,66 @@
+.crouton {
+  font-size: 1.33em;
+  color: #FFF;
+  line-height: 140%;
+  border-radius: 2px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  text-align: center;
+  z-index: 999999999;
+  margin: 0 auto;
+
+  div {
+    padding: 10px;
+    &.user-message {background-color: $base-color; color: $white}
+    &.info { background-color: #1F8DD6; }
+    &.success { background-color: #50CD84; }
+    &.warning { background-color: #FF8859; }
+    &.error { background-color: #FF5F5F; }
+    span {
+      display: block;
+      margin-bottom: 0;
+      margin-left: 3px;
+    }
+
+    .buttons {
+      height: 0;
+      padding: 0;
+
+      button {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        color: $white;
+        padding: 0;
+        margin: 6px 10px 0 0;
+        border-color: $base-color;
+
+        &:hover {
+          background-color: $base-color;
+          color: $white
+        }
+
+        &.btn,
+        &.retry,
+        &.close,
+        &.cancel,
+        &.ignore {
+          padding: 1px;
+          border: 1px solid transparent;
+        }
+        &.retry {
+          border-color: #FFF;
+        }
+        &.btn {
+          &.close {
+            border-color: $base-color;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

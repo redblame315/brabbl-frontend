@@ -1,0 +1,46 @@
+
+.alert_modal_content {
+    left:0 !important;
+    right:0 !important;
+    width: 380px; 
+    padding: 5px 5px 15px !important;
+    margin-left: auto;
+    margin-right: auto;
+    top: 35%;
+    background-color: white;
+    > div {
+      margin: 5px 5px 5px;
+      max-width: 380px;
+    }
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    border-radius: 6px;
+}
+.alert-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    button {
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 240px;
+        margin-bottom: 16px;
+    }
+}
+
+.alert-modal-title {
+    font-size: 14px;
+    margin-top: 16px;
+}
+.alert-modal-message {
+    font-size: 14px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}

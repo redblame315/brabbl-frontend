@@ -1,0 +1,28 @@
+.statement-item-container {
+  background-color: $white;
+  margin-top: 0px;
+  position: relative;
+  cursor: pointer;
+  border-radius: $modal-border-radius;
+  -webkit-box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  min-height: 100px;
+  &:hover {
+    h3 a {
+      color: $list-entry-title-color !important;
+    }
+  }
+
+}
+
+
+.statement-detail {
+  padding: 16px;
+}
+
+.c-auto-height-animator {
+  overflow: hidden;
+  padding: 5px;
+  transition: height 0.4s ease-out;
+}

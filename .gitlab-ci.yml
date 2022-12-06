@@ -1,0 +1,12 @@
+before_script:
+    - export LC_ALL=en_US.UTF-8
+    - export PATH=$ENV_PATH/bin:$PATH
+
+stages:
+  - test
+
+test_job:
+  stage: test
+  script:
+    - bash -c '. ~/.nvm/nvm.sh ; nvm use 5.0 ; npm install -s > /dev/null'
+    - bash -c '. ~/.nvm/nvm.sh ; nvm use 5.0 ; npm test'

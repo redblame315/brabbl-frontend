@@ -1,0 +1,282 @@
+.brabbl-pagination-container {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: center;
+}
+.pagination-next-text
+.pagination-prev-text {
+  display: flex;
+  font-size: 12px;
+  color: red;
+  align-items: center;
+  justify-content: center;
+}
+.rc-pagination {
+  font-size: 14px;
+  font-family: "Google Sans";
+  user-select: none;
+  padding: 0;
+}
+.rc-pagination > li {
+  list-style: none;
+}
+.rc-pagination-total-text {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0 8px 0 0;
+}
+.rc-pagination:after {
+  content: ' ';
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+.rc-pagination-item {
+  cursor: pointer;
+  min-width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  list-style: none;
+  float: left;
+  border: none;
+  margin-right: 8px;
+}
+.rc-pagination-item a {
+  text-decoration: none;
+  color: #666;
+}
+.rc-pagination-item:hover {
+
+}
+.rc-pagination-item:hover a {
+  color: black;
+}
+.rc-pagination-item-disabled {
+  cursor: not-allowed;
+}
+.rc-pagination-item-disabled:hover {
+  border-color: #d9d9d9;
+}
+.rc-pagination-item-disabled:hover a {
+  color: #d9d9d9;
+}
+.rc-pagination-item-active {
+  font-family: "Google Sans Bold";
+  color: black
+}
+.rc-pagination-item-active a {
+  color: black
+}
+.rc-pagination-item-active:hover a {
+  color: black
+}
+.rc-pagination-jump-prev:after,
+.rc-pagination-jump-next:after {
+  content: '•••';
+  display: block;
+  letter-spacing: 2px;
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 1px;
+}
+.rc-pagination-jump-prev:hover:after,
+.rc-pagination-jump-next:hover:after {
+  color: black;
+}
+.rc-pagination-jump-prev:hover:after {
+  content: '«';
+}
+.rc-pagination-jump-next:hover:after {
+  content: '»';
+}
+.rc-pagination-jump-prev-custom-icon,
+.rc-pagination-jump-next-custom-icon {
+  position: relative;
+}
+.rc-pagination-jump-prev-custom-icon:after,
+.rc-pagination-jump-next-custom-icon:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  transition: all 0.2s;
+  content: '•••';
+  opacity: 1;
+  display: block;
+  letter-spacing: 2px;
+  color: #ccc;
+  font-size: 12px;
+  margin-top: 1px;
+}
+.rc-pagination-jump-prev-custom-icon .custom-icon-jump-prev,
+.rc-pagination-jump-next-custom-icon .custom-icon-jump-prev,
+.rc-pagination-jump-prev-custom-icon .custom-icon-jump-next,
+.rc-pagination-jump-next-custom-icon .custom-icon-jump-next {
+  opacity: 0;
+  transition: all 0.2s;
+}
+.rc-pagination-jump-prev-custom-icon:hover:after,
+.rc-pagination-jump-next-custom-icon:hover:after {
+  opacity: 0;
+  color: #ccc;
+}
+.rc-pagination-jump-prev-custom-icon:hover .custom-icon-jump-prev,
+.rc-pagination-jump-next-custom-icon:hover .custom-icon-jump-prev,
+.rc-pagination-jump-prev-custom-icon:hover .custom-icon-jump-next,
+.rc-pagination-jump-next-custom-icon:hover .custom-icon-jump-next {
+  opacity: 1;
+  color: black;
+}
+.rc-pagination-prev,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  margin-right: 8px;
+}
+.rc-pagination-prev,
+.rc-pagination-next,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  cursor: pointer;
+  color: #666;
+  font-size: 10px;
+  list-style: none;
+  min-width: 28px;
+  height: 28px;
+  line-height: 24px;
+  float: left;
+  text-align: center;
+  border: 1px solid $dark-grey;
+  border-radius: 4px;
+  outline: none;
+  button {
+    background-color: transparent;
+  }
+}
+.rc-pagination-prev:after {
+  content: '‹';
+}
+.rc-pagination-next:after {
+  content: '›';
+}
+
+.rc-pagination-prev,
+.rc-pagination-next {
+  font-size: 18px;
+}
+.rc-pagination-prev button,
+.rc-pagination-next button {
+  color: #666;
+  outline: none;
+  border: none;
+  padding: unset;
+  font-weight: bold;
+  font-size: 20px;
+}
+.rc-pagination-prev a:after,
+.rc-pagination-next a:after {
+  margin-top: -1px;
+}
+.rc-pagination-disabled {
+  cursor: not-allowed;
+}
+.rc-pagination-disabled a {
+  color: #ccc;
+}
+
+.rc-pagination-disabled .rc-pagination-item,
+.rc-pagination-disabled .rc-pagination-prev,
+.rc-pagination-disabled .rc-pagination-next {
+  cursor: not-allowed;
+}
+.rc-pagination-disabled .rc-pagination-item:hover,
+.rc-pagination-disabled .rc-pagination-prev:hover,
+.rc-pagination-disabled .rc-pagination-next:hover {
+  border-color: #d9d9d9;
+}
+.rc-pagination-disabled .rc-pagination-item:hover a,
+.rc-pagination-disabled .rc-pagination-prev:hover a,
+.rc-pagination-disabled .rc-pagination-next:hover a {
+  color: #d9d9d9;
+}
+.rc-pagination-disabled .rc-pagination-jump-prev,
+.rc-pagination-disabled .rc-pagination-jump-next {
+  pointer-events: none;
+}
+.rc-pagination-options {
+  float: left;
+  margin-left: 15px;
+}
+.rc-pagination-options-size-changer {
+  float: left;
+  width: 80px;
+}
+.rc-pagination-options-quick-jumper {
+  float: left;
+  margin-left: 16px;
+  height: 28px;
+  line-height: 28px;
+}
+.rc-pagination-options-quick-jumper input {
+  margin: 0 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  outline: none;
+  padding: 3px 12px;
+  width: 50px;
+  height: 28px;
+}
+.rc-pagination-options-quick-jumper input:hover {
+}
+.rc-pagination-options-quick-jumper button {
+  display: inline-block;
+  margin: 0 8px;
+  font-weight: 500;
+  text-align: center;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  padding: 0 15px;
+  font-size: 12px;
+  height: 28px;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+}
+.rc-pagination-options-quick-jumper button:hover,
+.rc-pagination-options-quick-jumper button:active,
+.rc-pagination-options-quick-jumper button:focus {
+  color : black;
+  background-color: #fff;
+}
+@media only screen and (max-width: 1024px) {
+  .rc-pagination-item-after-jump-prev,
+  .rc-pagination-item-before-jump-next {
+    display: none;
+  }
+}
+
+.rc-pagination-jump-prev {
+  button {
+    display: none;
+  }
+}
+.rc-pagination-jump-next {
+  button {
+    display: none;
+  }
+}
+.rc-pagination-item-link:after {
+  display: none;
+}
