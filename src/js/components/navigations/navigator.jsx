@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { VIEW_LOGIN, VIEW_SIGNUP, VIEW_DISCUSSION_LIST, 
-         VIEW_DISCUSSION_DETAIL, VIEW_LOST_PASSWORD, MODAL_SIGNUP } from '../../constants';
+import { VIEW_LOGIN, VIEW_SIGNUP, VIEW_DISCUSSION_LIST, VIEW_DISCUSSION_NEWS,
+         VIEW_DISCUSSION_DETAIL, VIEW_LOST_PASSWORD, MODAL_SIGNUP } from '../../constants'; //TODO:import VIEW_DISCUSSION_NEWS const [Blame 12/09]
 import DetailView from '../views/detail-view';
 import ListContainer from '../views/list-view';
+import NewsView from '../views/news-view';
 import LoginView from '../views/login-view';
 import SignupView from '../views/signup-view';
 import ResetPasswordView from '../views/reset-password-view';
@@ -97,6 +98,8 @@ class Navigator extends React.Component {
                 />
             case VIEW_DISCUSSION_LIST:
                 return <ListContainer {...this.props} />
+            case VIEW_DISCUSSION_NEWS: //add case VIEW_DISCUSSION_NEWS for show news list [Blame 12/09]
+                return <NewsView {...this.props} />
             case VIEW_LOGIN:
                 return <LoginView {...this.props} />
             case VIEW_SIGNUP:

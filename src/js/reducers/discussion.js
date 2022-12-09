@@ -1,4 +1,4 @@
-import { BOOTSTRAP, UPDATE_DISCUSSION, PROCESS_DISCUSSION_LIST,
+import { BOOTSTRAP, UPDATE_DISCUSSION, PROCESS_DISCUSSION_LIST, PROCESS_UNDISCUSSION_LIST,
          UPDATE_DISCUSSION_PARTICIPANTS } from '../constants';
 
 
@@ -32,6 +32,19 @@ function discussion_list(state = [], action) {
       return state;
   }
 }
+
+//TODO:add undiscussion_list function to get news from action [Blame 12/09]
+function undiscussion_list(state = [], action) {
+  switch (action.type) {
+    case PROCESS_UNDISCUSSION_LIST:
+      return action.resp.undiscussion_list;
+    case BOOTSTRAP:
+      return action.resp.undiscussion_list;
+    default:
+      return state;
+  }
+}
+
 function discussion_participants(state= [], action) {
   switch(action.type) {
     case BOOTSTRAP:
@@ -42,4 +55,4 @@ function discussion_participants(state= [], action) {
       return state;
   }
 }
-export { discussion, discussions, discussion_list, discussion_participants };
+export { discussion, discussions, undiscussion_list, discussion_list, discussion_participants }; //TODO:add undiscussion_list for news [Blame 12/09]

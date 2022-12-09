@@ -74,8 +74,10 @@ class App extends React.Component {
       branding,
       listLink;
     let { app, user, notification, dispatch, customer, discussion_list } = this.props;
+    console.log(this.props);
     let isDetailView = app.view === 'detail';
 
+    
     if (window.location.hash.indexOf('token') !== -1) {
       let params = window.location.hash.split('&');
       for (let i = 0; i < params.length; i++) {
@@ -152,6 +154,7 @@ class App extends React.Component {
               message={notification.text}
               closeHandler={() => dispatch(hideNotification())}
             />
+
         }
         <Navigator {...this.props}/>
         {
@@ -183,6 +186,8 @@ App.propTypes = {
   app: PropTypes.object,
   customer: PropTypes.object,
   discussion_list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  //TODO:define list for news [Blame 12/08]
+  undiscussion_list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   translators: PropTypes.object,
 };
 
@@ -193,6 +198,8 @@ const mapStateToProps = (state) => ({
   discussion: state.discussion,
   discussions: state.discussions,
   discussion_list: state.discussion_list,
+  //TODO:define map for news [Blame 12/08]
+  undiscussion_list : state.undiscussion_list,
   app: state.app,
   user: state.user,
   customer: state.customer,

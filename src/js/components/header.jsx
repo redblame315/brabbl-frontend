@@ -8,7 +8,13 @@ let Header = (props) => {
   let headline;
   if (currentView === 'detail') {
     headline = i18next.t('DISCUSSION');
-  } else if (props.discussion_list && props.discussion_list.name) {
+  }
+  //TODO:Headline for News [Blame 12/08]
+  else if(currentView === 'news') 
+  {
+    headline = i18next.t('News Discussions');
+  }
+  else if (props.discussion_list && props.discussion_list.name) {
     headline = props.discussion_list.name;
   } else {
     headline = i18next.t('All discussions');

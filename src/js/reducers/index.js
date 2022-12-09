@@ -4,7 +4,7 @@ import translators from './translators';
 import modal from './modal';
 import alert from './alert';
 import argument from './argument';
-import { discussions, discussion, discussion_list, discussion_participants } from './discussion';
+import { discussions, discussion, undiscussion_list, discussion_list, discussion_participants } from './discussion'; //TODO:add undiscussion_list for news [Blame 12/09]
 import user from './user';
 import customer from './customer';
 import moment from 'moment';
@@ -80,7 +80,7 @@ function app(state = initialState, action) {
     case SET_SHOULD_SKIP_UPDATE: 
       return { ...state, shouldSkipUpdate: action.flag}
     case BOOTSTRAP:
-      return {
+      return {        
         ...state,
         loading: false,
         backendVersionNumber: action.resp.backendVersionNumber,
@@ -99,7 +99,8 @@ const rootReducer = combineReducers({
   app,
   discussion,
   discussions,
-  discussion_list,
+  discussion_list,  
+  undiscussion_list, //TODO:add undiscussion_list for news [Blame 12/09]
   discussion_participants,
   argument,
   notification,

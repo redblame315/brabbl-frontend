@@ -18,6 +18,7 @@ export const SORT_SURVEY = 'SORT_SURVEY';
 export const SHOW_MORE_ARGUMENTS = 'SHOW_MORE_ARGUMENTS';
 export const FETCH_TRANSLATION = 'FETCH_TRANSLATION';
 export const PROCESS_DISCUSSION_LIST = 'PROCESS_DISCUSSION_LIST';
+export const PROCESS_UNDISCUSSION_LIST = 'PROCESS_UNDISCUSSION_LIST'; //TODO:constant for news from backend [Blame 12/08]
 export const UPDATE_DISCUSSION_PARTICIPANTS = 'UPDATE_DISCUSSION_PARTICIPANTS';
 export const SET_AUTO_UPDATE_LOADING = 'SET_AUTO_UPDATE_LOADING'
 export const SET_SHOULD_SKIP_UPDATE = 'SET_SHOULD_SKIP_UPDATE'
@@ -55,6 +56,7 @@ export const MODAL_PRIVATE_INVITE = 'PRIVATE_INVITE_LIST';
 export const VIEW_LOGIN = 'login';
 export const VIEW_SIGNUP = 'signup';
 export const VIEW_LOST_PASSWORD = 'loss-password';
+export const VIEW_DISCUSSION_NEWS = 'news'; //TODO:const for news [Blame 12/08]
 export const VIEW_DISCUSSION_LIST = 'list';
 export const VIEW_DISCUSSION_DETAIL = 'detail';
 

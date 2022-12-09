@@ -24,7 +24,9 @@ class UserLogin extends React.Component {
   render() {
     let cssClass = 'user-login-menu';
     let { user, customer, dispatch } = this.props;
-    let loginItem,
+    let 
+      newsItem,
+      loginItem,
       profileItem,
       editDiscussionItem,
       userListItem,
@@ -35,6 +37,11 @@ class UserLogin extends React.Component {
       avatar;
 
     if (user) {
+      newsItem = (
+        <DropDownItem onSelect={() => dispatch(showModal(MODAL_DISCUSSION_LIST, { ...this.props }))}>
+          { i18next.t('News') }
+        </DropDownItem>
+      );
       loginItem = (
         <DropDownItem onSelect={() => dispatch(showModal(MODAL_PROFILE, { ...user }))}>
           { i18next.t('Profile') }
@@ -91,6 +98,7 @@ class UserLogin extends React.Component {
       avatar = (<AvatarContainer user={user} size={32}/>);
       loginOrProfile = (
         <DropDown className={cssClass} fixedActiveItem={avatar} hideDownArrow>
+          {newsItem}
           {loginItem}
           {profileItem}
           {editDiscussionItem}

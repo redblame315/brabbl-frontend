@@ -265,6 +265,8 @@ let API = {
         discussions: discussions,
         discussion: discussion,
         discussion_list: resp.discussion_list,
+        //TODO:get undiscussion_list for news from Backend [Blame 12/08]
+        undiscussion_list: discussions,
         discussion_participants: discussion? discussion.discussion_users : null,
         tags: tags,
       }));
