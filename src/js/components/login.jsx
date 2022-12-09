@@ -21,9 +21,13 @@ class UserLogin extends React.Component {
     );
   }
 
+  onNewsItemClick = () => {
+
+  }
+
   render() {
     let cssClass = 'user-login-menu';
-    let { user, customer, dispatch } = this.props;
+    let { user, customer, dispatch, undiscussion_list } = this.props;
     let 
       newsItem,
       loginItem,
@@ -38,7 +42,7 @@ class UserLogin extends React.Component {
 
     if (user) {
       newsItem = (
-        <DropDownItem onSelect={() => dispatch(showModal(MODAL_DISCUSSION_LIST, { ...this.props }))}>
+        <DropDownItem onSelect={() => dispatch(showModal(MODAL_DISCUSSION_LIST, { ...this.props }))} badgeLabel={undiscussion_list.length}>
           { i18next.t('News') }
         </DropDownItem>
       );
@@ -133,6 +137,11 @@ UserLogin.propTypes = {
   user: PropTypes.object,
   customer: PropTypes.object,
   currentView: PropTypes.string,
+  undiscussion_list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
+
+
 export default UserLogin;
+
+

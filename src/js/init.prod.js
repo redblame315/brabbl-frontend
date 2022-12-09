@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import App from './components/app';
 import '../fonts/font-awesome.scss';
+import 'bootstrap/dist/css/bootstrap.css'
 
 // Include all themes in theme folder so they are found by webpack and get extracted to
 // separate stylesheets

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
+import Badge from 'react-bootstrap/Badge';
 
 class DropDownItem extends React.Component {
 
@@ -10,8 +11,19 @@ class DropDownItem extends React.Component {
   }
 
   render() {
-    return (
-      <li className="dropdown-item" onClick={this.handleClick}>{this.props.children}</li>
+    console.log("Badge");
+    console.log(this.props);
+    return (      
+      
+        <li className="dropdown-item" onClick={this.handleClick}>
+          {this.props.children}
+          <Badge pill bg="danger">
+            {this.props.badgeLabel}
+          </Badge>
+        </li>
+      
+      // <li className="dropdown-item" onClick={this.handleClick}>
+      //   {this.props.children}{' '}</li>
     );
   }
 }
