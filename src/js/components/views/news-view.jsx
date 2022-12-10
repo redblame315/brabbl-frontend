@@ -13,6 +13,7 @@ import {
 import moment from 'moment';
 import { IntersecArrays, UserHasPermission } from '../../utils';
 import { navigateView } from '../../actions/app.js'
+import { deleteUndisussion } from '../../actions/async';
 
 const ListDiscussionItem = ListDiscussionItemWrapper(DiscussionItem);
 
@@ -84,6 +85,7 @@ const NewsView = (props) => {
                                 "?articleId="+statement.external_id+"&view="+VIEW_DISCUSSION_DETAIL+"#brabbl-widget")
       props.dispatch(navigateView({view: VIEW_DISCUSSION_DETAIL, articleId: statement.external_id}))
     }
+    props.dispatch(deleteUndisussion("discussion", statement.external_id));
   }
   return (
     <div>

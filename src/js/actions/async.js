@@ -24,6 +24,12 @@ export function getDiscussionList(url) {
   return dispatch => API.get_discussion_list(url).then(resp => dispatch(processDiscussionList(resp)));
 }
 
+//TODO:add delete undiscussion when user read one [Blame 12/09]
+export function deleteUndisussion(type, id)
+{
+  return dispatch => API.delete_undiscussion(type,id).then(resp=>{});
+}
+
 export function reloadDiscussion(articleId) {
   return (dispatch, getState) =>
     API.get_discussion(articleId || window.brabbl.articleId)
@@ -43,3 +49,5 @@ export function fetchArgument(id) {
 export function loadTrans() {
   return dispatch => API.get_trans().then(resp => dispatch(fetchTrans(resp)));
 }
+
+

@@ -17,7 +17,7 @@ let Header = (props) => {
   else if (props.discussion_list && props.discussion_list.name) {
     headline = props.discussion_list.name;
   } else {
-    headline = i18next.t('All discussions');
+    headline = i18next.t('All discussions'); 
   }
 
   if (!user && customer && customer.is_private) {

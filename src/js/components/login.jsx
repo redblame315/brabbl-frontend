@@ -46,8 +46,8 @@ class UserLogin extends React.Component {
 
     let badgeLabel = 0;
     if(undiscussion_list)
-      badgeLabel = undiscussion_list.length;
-    
+      badgeLabel = undiscussion_list.discussion.length;
+      
     if (user) {
       newsItem = (
         <DropDownItem onSelect={this.onNewsClick} badgeLabel={badgeLabel}>

@@ -61,6 +61,7 @@ let API = {
       .catch(() => ({ discussions: null }));
   },
 
+  //TODO:get the news from backend [Blame 12/09]
   get_undiscussion_list() {
     return API.get('undiscussion_list/')
       .then(resp => {
@@ -69,8 +70,9 @@ let API = {
       .catch(() => ({ undiscussion_list: null }));
   },
 
-  delete_undiscussion(id) {
-    return this.delete('delete_undiscussion/' + id + '/');
+  //TODO:delete the news in backend [Blame 12/09]
+  delete_undiscussion(type, id) {
+    return API.get(urlencode`undiscussion_list/delete/?type=${type}&id=${id}`);
   },
 
   get_discussion(external_id) {
