@@ -11,15 +11,16 @@ class DropDownItem extends React.Component {
   }
 
   render() {
-    console.log("Badge");
-    console.log(this.props);
     return (      
       
         <li className="dropdown-item" onClick={this.handleClick}>
           {this.props.children}
-          <Badge pill bg="danger">
-            {this.props.badgeLabel}
-          </Badge>
+          {
+            this.props.badgeLabel !== 0 &&
+            <Badge pill bg="danger">
+              {this.props.badgeLabel}
+            </Badge>
+          }
         </li>
       
       // <li className="dropdown-item" onClick={this.handleClick}>

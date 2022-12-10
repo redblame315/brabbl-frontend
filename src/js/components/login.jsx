@@ -21,6 +21,10 @@ class UserLogin extends React.Component {
     );
   }
 
+  onNewsClick = () => {
+    window.location.href = "/news.html";
+  }
+
   onNewsItemClick = () => {
 
   }
@@ -40,9 +44,13 @@ class UserLogin extends React.Component {
       exportStatistics,
       avatar;
 
+    let badgeLabel = 0;
+    if(undiscussion_list)
+      badgeLabel = undiscussion_list.length;
+    
     if (user) {
       newsItem = (
-        <DropDownItem onSelect={() => dispatch(showModal(MODAL_DISCUSSION_LIST, { ...this.props }))} badgeLabel={undiscussion_list.length}>
+        <DropDownItem onSelect={this.onNewsClick} badgeLabel={badgeLabel}>
           { i18next.t('News') }
         </DropDownItem>
       );

@@ -46,8 +46,10 @@ const NewsView = (props) => {
   let { discussions, discussion_list, undiscussion_list,
     app: { tags, discussionFilter }, dispatch, user } = props;
   let tagSelector;
-  if(undiscussion_list)
-    discussions = sortDiscussions(undiscussion_list)
+  
+  //if(undiscussion_list)
+  //  discussions = sortDiscussions(undiscussion_list)
+
   // filter by user selected tags
   if (discussionFilter) {
     discussions = discussions.filter(d => d.tags.indexOf(discussionFilter) > -1);
@@ -93,6 +95,7 @@ const NewsView = (props) => {
       <div></div>
       <div className="discussion-list-body">
         {discussions.map(discussion =>
+          undiscussion_list.discussion.includes(discussion.external_id) &&
           <ListDiscussionItem
             {...props}
             key={discussion.external_id}

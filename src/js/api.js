@@ -61,6 +61,18 @@ let API = {
       .catch(() => ({ discussions: null }));
   },
 
+  get_undiscussion_list() {
+    return API.get('undiscussion_list/')
+      .then(resp => {
+        return { undiscussion_list: resp.data }
+      })
+      .catch(() => ({ undiscussion_list: null }));
+  },
+
+  delete_undiscussion(id) {
+    return this.delete('delete_undiscussion/' + id + '/');
+  },
+
   get_discussion(external_id) {
     if(!external_id) {
       return new Promise((resolve) => {
@@ -155,6 +167,7 @@ let API = {
   bootstrap(articleId = null) {
     let account,
       discussions,
+      undiscussion_list,
       discussion,
       availableWordings,
       customer,
@@ -209,6 +222,19 @@ let API = {
             resolve();
           }).then(() => ({
             discussions: null,
+          }));
+        }
+
+        //TODO: get undiscussion_list from backend [Blame 12/09]
+        return this.get_undiscussion_list();
+      })      
+      .then(resp => {
+        undiscussion_list = resp.undiscussion_list;
+        if (!isAuthorized && customer.is_private) {
+          return new Promise(function emptyfunc(resolve) {
+            resolve();
+          }).then(() => ({
+            undiscussion_list: null,
           }));
         }
         return this.get_discussions();
@@ -266,7 +292,7 @@ let API = {
         discussion: discussion,
         discussion_list: resp.discussion_list,
         //TODO:get undiscussion_list for news from Backend [Blame 12/08]
-        undiscussion_list: discussions,
+        undiscussion_list: {"discussion" : ['redblame315','redblame312']},
         discussion_participants: discussion? discussion.discussion_users : null,
         tags: tags,
       }));
