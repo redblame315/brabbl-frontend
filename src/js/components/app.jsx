@@ -44,7 +44,7 @@ class App extends React.Component {
     }
  
     if(!nextProps.app.loading && ( nextProps.app.view != this.props.app.view ||
-       nextProps.app.articleId != this.props.app.articleId)) {
+       nextProps.app.articleId != this.props.app.articleId) && nextProps.app.view == 'detail') {
        this.props.dispatch(bootstrapApp(nextProps.app.articleId));
     }
   }
