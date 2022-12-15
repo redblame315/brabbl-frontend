@@ -62,18 +62,13 @@ let API = {
   },
 
   //TODO:get the news from backend [Blame 12/09]
-  get_undiscussion_list() {
-    return API.get('undiscussion_list/')
+  /*get_undiscussion_list() {
+    return API.get(urlencode`discussions/undiscussion_list`)
       .then(resp => {
         return { undiscussion_list: resp.data }
       })
       .catch(() => ({ undiscussion_list: null }));
-  },
-
-  //TODO:delete the news in backend [Blame 12/09]
-  delete_undiscussion(type, id) {
-    return API.get(urlencode`undiscussion_list/delete/?type=${type}&id=${id}`);
-  },
+  },*/
 
   get_discussion(external_id) {
     if(!external_id) {
@@ -85,6 +80,7 @@ let API = {
     if (typeof external_id === 'string') {
       external_id = external_id.split('#')[0];
     }
+    
     return API.get(urlencode`discussions/detail/?external_id=${external_id}`)
       .then(resp => ({ discussion: resp.data }))
       .catch(() => ({ discussion: null }));
@@ -183,7 +179,12 @@ let API = {
       })
       .then(resp => {
         account = resp;
+        undiscussion_list = [];
         if (account.user) {
+          //TODO:get undiscussion_list for news from Backend [Blame 12/14]                    
+          console.log(account.user);
+          if(account.user.undiscussion_ids != '')
+            undiscussion_list = account.user.undiscussion_ids.split(',');
           isAuthorized = true
         }
         return this.get_customer_data();
@@ -227,20 +228,8 @@ let API = {
           }));
         }
 
-        //TODO: get undiscussion_list from backend [Blame 12/09]
-        return this.get_undiscussion_list();
-      })      
-      .then(resp => {
-        undiscussion_list = resp.undiscussion_list;
-        if (!isAuthorized && customer.is_private) {
-          return new Promise(function emptyfunc(resolve) {
-            resolve();
-          }).then(() => ({
-            undiscussion_list: null,
-          }));
-        }
         return this.get_discussions();
-      })
+      })            
       .then(resp => {
         discussions = resp.discussions;
         if (!isAuthorized && customer.is_private) {
@@ -292,9 +281,8 @@ let API = {
         customer: customer,
         discussions: discussions,
         discussion: discussion,
-        discussion_list: resp.discussion_list,
-        //TODO:get undiscussion_list for news from Backend [Blame 12/08]
-        undiscussion_list: {"discussion" : ['redblame315','redblame312']},
+        undiscussion_list: undiscussion_list,
+        discussion_list: resp.discussion_list,        
         discussion_participants: discussion? discussion.discussion_users : null,
         tags: tags,
       }));
@@ -496,7 +484,30 @@ let API = {
 
   get_pending_invitations() {
     return this.get('account/invite-participant/');
-  }
+  },
+
+  get_undiscussion_list()
+  {
+    console.log("get_undiscussion_list");
+    return this.get_account().then(resp => {
+      //console.log("Resonse: get_undiscussion_list");
+
+      let account = resp;
+      let undiscussion_list = [];
+      let isAuthorized;
+      if (account.user) {
+        //TODO:get undiscussion_list for news from Backend [Blame 12/14]                    
+        console.log(account.user);
+        if(account.user.undiscussion_ids != '')
+          undiscussion_list = account.user.undiscussion_ids.split(',');
+        isAuthorized = true
+      }
+
+      console.log("Resonse: get_undiscussion_list");
+      console.log(undiscussion_list);
+      return {undiscussion_list : undiscussion_list};
+    })
+  }  
 };
 
 export default API;

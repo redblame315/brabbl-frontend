@@ -13,7 +13,7 @@ import {
 import moment from 'moment';
 import { IntersecArrays, UserHasPermission } from '../../utils';
 import { navigateView } from '../../actions/app.js'
-import { deleteUndisussion } from '../../actions/async';
+import { getUnDiscussionList } from '../../actions/async';
 
 const ListDiscussionItem = ListDiscussionItemWrapper(DiscussionItem);
 
@@ -84,8 +84,7 @@ const NewsView = (props) => {
       window.history.pushState({page: 'discussion-detail'}, 'discussion-detail',
                                 "?articleId="+statement.external_id+"&view="+VIEW_DISCUSSION_DETAIL+"#brabbl-widget")
       props.dispatch(navigateView({view: VIEW_DISCUSSION_DETAIL, articleId: statement.external_id}))
-    }
-    props.dispatch(deleteUndisussion("discussion", statement.external_id));
+    }    
   }
   return (
     <div>
@@ -97,7 +96,7 @@ const NewsView = (props) => {
       <div></div>
       <div className="discussion-list-body">
         {discussions.map(discussion =>
-          undiscussion_list.discussion.includes(discussion.external_id) &&
+          undiscussion_list.includes(discussion.external_id) &&
           <ListDiscussionItem
             {...props}
             key={discussion.external_id}

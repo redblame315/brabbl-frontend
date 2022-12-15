@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bootstrapApp } from '../actions/async';
 import { showNotification, showModal } from '../actions/app';
@@ -46,7 +47,7 @@ class UserLogin extends React.Component {
 
     let badgeLabel = 0;
     if(undiscussion_list)
-      badgeLabel = undiscussion_list.discussion.length;
+      badgeLabel = undiscussion_list.length;
       
     if (user) {
       newsItem = (
@@ -148,8 +149,9 @@ UserLogin.propTypes = {
   undiscussion_list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };
 
+const mapStateToProps = (state) => ({
+  undiscussion_list: state.undiscussion_list,
+});
 
-
-export default UserLogin;
-
-
+export default connect(mapStateToProps)(UserLogin);
+// export default UserLogin;

@@ -8,7 +8,7 @@ import { discussions, discussion, undiscussion_list, discussion_list, discussion
 import user from './user';
 import customer from './customer';
 import moment from 'moment';
-import { SHOW_STATEMENT, SHOW_ARGUMENT, SHOW_SURVEY, BOOTSTRAP, PROCESS_DISCUSSION_LIST,
+import { SHOW_STATEMENT, SHOW_ARGUMENT, SHOW_SURVEY, BOOTSTRAP, PROCESS_DISCUSSION_LIST, PROCESS_UNDISCUSSION_LIST,
   SORT_ARGUMENTS, SHOW_MORE_ARGUMENTS, BY_RELEVANCE, FILTER_DISCUSSIONS, FILTER_DISCUSSIONS_BY_RELEVANCE,
   SORT_SURVEY, FETCH_TRANSLATION, NAVIGATE_VIEW, LOADING,
   SET_AUTO_UPDATE_LOADING, SET_SHOULD_SKIP_UPDATE } from '../constants';
@@ -73,6 +73,8 @@ function app(state = initialState, action) {
       return { ...state, translate: action.resp };
     case PROCESS_DISCUSSION_LIST:
       return { ...state, discussion_list: action.resp };
+    case PROCESS_UNDISCUSSION_LIST:
+      return { ...state, undiscussion_list: action.resp };
     case LOADING:
       return { ...state, loading: action.isLoading};
     case SET_AUTO_UPDATE_LOADING:

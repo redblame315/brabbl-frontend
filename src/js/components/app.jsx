@@ -74,7 +74,6 @@ class App extends React.Component {
       branding,
       listLink;
     let { app, user, notification, dispatch, customer, discussion_list } = this.props;
-    console.log(this.props);
     let isDetailView = app.view === 'detail';
 
     
@@ -132,14 +131,17 @@ class App extends React.Component {
       title = discussion_list.name;
     }
 
+    if(window.history.state)
+      console.log(window.history.state.page);
     return (
       <div key={user} className={isDetailView ? 'discussion-widget' : 'discussion-list-widget'}>
-        {
-          window.history.state && window.history.state.page == 'discussion-detail' && !this.props.app.statementId &&
-          <div className="back-link" onClick={this.showDiscussionList}>
-            <i className="fa fa-long-arrow-left"></i>
-            <span>{title}</span>
-         </div>
+        {  
+        //TODO:remove back link i think no need [Blame 12/14]        
+        //   window.history.state && window.history.state.page == 'discussion-detail' && !this.props.app.statementId &&
+        //   <div className="back-link" onClick={this.showDiscussionList}>
+        //     <i className="fa fa-long-arrow-left"></i>
+        //     <span>{title}</span>
+        //  </div>
         }
 
         <Header

@@ -13,6 +13,7 @@ import {
 import moment from 'moment';
 import { IntersecArrays, UserHasPermission } from '../../utils';
 import { navigateView } from '../../actions/app.js'
+import { getUnDiscussionList } from '../../actions/async';
 
 const ListDiscussionItem = ListDiscussionItemWrapper(DiscussionItem);
 
