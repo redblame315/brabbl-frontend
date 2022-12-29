@@ -33,8 +33,8 @@ const ListDiscussionItemWrapper = (DiscussionItem) => class extends React.Compon
     {      
       if(undiscussion_list[discussion_id] != null)
       {
-        if(undiscussion_list[discussion_id]["new"] == true)
-          news_content += "New Discussion ";
+        if(undiscussion_list[discussion_id]["new"] != null)
+          news_content += "New Discussion, ";
         
         let keys = Object.keys(undiscussion_list[discussion_id]);
         let statement_count = 0;
@@ -42,19 +42,20 @@ const ListDiscussionItemWrapper = (DiscussionItem) => class extends React.Compon
         let vote_count = 0;
         for(let i = 0; i < keys.length; i++)
         {
-          if(undiscussion_list[discussion_id][keys[i]]["new"] == true)
+          if(undiscussion_list[discussion_id][keys[i]]["new"] != null)
             statement_count ++;
-          if(undiscussion_list[discussion_id][keys[i]]["vote"] == true)
-            vote_count ++;
+          if(undiscussion_list[discussion_id][keys[i]]["vote"] != null)
+            vote_count += undiscussion_list[discussion_id][keys[i]]["vote"];
           if(undiscussion_list[discussion_id][keys[i]]["argument"] != null)
             argument_count += undiscussion_list[discussion_id][keys[i]]["argument"].length;
         }
         if(statement_count > 0)
-          news_content += "New Statements(" + statement_count.toString() + ") ";
+          news_content += "New " + statement_count.toString()  + " Statements, ";
         if(argument_count > 0)
-          news_content += "New Arguments(" + argument_count.toString() + ") ";
+          news_content += "New " + argument_count.toString() + " Arguments, ";
         if(vote_count > 0)
-          news_content += "New Votes(" + vote_count.toString() + ") ";        
+          news_content += "New " + vote_count.toString() + " Votes, ";        
+        news_content = news_content.slice(0, news_content.length - 2);
       }
       return news_content;
     }
