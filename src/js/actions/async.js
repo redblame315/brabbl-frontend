@@ -10,7 +10,9 @@ export function bootstrapApp(articleId=null, isSilent=false) {
       dispatch(loading(true))
     }
     dispatch(setAutoUpdateLoading(true))
+    console.log("bootstrap");
     API.bootstrap(articleId).then(resp => {
+      console.log(resp);
       const { shouldSkipUpdate } = getState().app;
       if(!shouldSkipUpdate) {
         dispatch(processBootstrap(resp))
@@ -42,14 +44,14 @@ export function reloadDiscussion(articleId) {
           dispatch(setShouldSkipUpdate(true))
         }
         dispatch(updateDiscussion(resp))        
-        console.log("call_get_undiscussion");
-        return API.get_undiscussion_list();
-      })
-      .then(resp=>{
-        console.log("undiscussion_list_resp");
-        console.log(resp);
-        dispatch(undiscussion_list(resp))
+        // console.log("call_get_undiscussion");
+        // return API.get_undiscussion_list();
       });
+      // .then(resp=>{
+      //   console.log("undiscussion_list_resp");
+      //   console.log(resp);
+      //   dispatch(undiscussion_list(resp.undiscussion_list))
+      // });
 }
 
 export function fetchArgument(id) {

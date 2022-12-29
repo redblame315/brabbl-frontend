@@ -4,6 +4,7 @@ import moment from 'moment';
 import Barometer from './barometer';
 import LazyLoad from 'react-lazy-load';
 import i18next from 'i18next';
+import {connect} from 'react-redux';
 import { UseWording, UseNotifyWording } from '../../utils';
 import {
   MODAL_MEDIA, MEDIA_TYPE_IMAGE, MEDIA_TYPE_YOUTUBE, STATEMENT_STATUS_HIDDEN,
@@ -110,10 +111,11 @@ class DiscussionItem extends React.Component {
   }
 
   render() {
-    let { barometer, created_at, image_url, url, statement_count, status, author, description } = this.props.statement;
-    let { barometerActive, optionsList, title, handleStatementClick } = this.props;
+    let {discussion_id, barometer, created_at, image_url, url, statement_count, status, author, description } = this.props.statement;
+    let {barometerActive, optionsList, title, handleStatementClick, newsData} = this.props;
+    console.log("NewsData: " + newsData);
     let timeAgo = status === STATEMENT_STATUS_HIDDEN ? '' : moment(created_at).fromNow();
-    let statement_text = statement_count === 1 ? 'survey_statement' : 'survey_statements';
+    let statement_text = statement_count === 1 ? 'survey_statement' : 'survey_statements';  
 
     if (barometer) {
       let { rating, user_rating, count, wording } = barometer;
@@ -203,6 +205,7 @@ class DiscussionItem extends React.Component {
               <AvatarContainer user={author} size={26} date={created_at} dateFormat="DD.MM.YYYY HH:mm" dateonly/>
             </div>
             {title}
+            {newsData}
             {this.renderDescription(description)}
             {
               status !== STATEMENT_STATUS_HIDDEN &&

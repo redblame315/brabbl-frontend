@@ -51,11 +51,12 @@ class App extends React.Component {
   }
   
   showDiscussionList = () => {
-      if(window.history.state.page == 'discussion-detail') {
-        let currentUrl = window.location.href
-        window.history.back()
-        this.props.dispatch(navigateView({view: VIEW_DISCUSSION_LIST, articleId: null}))
-      }
+    window.location.href = "/list.html";
+      // if(window.history.state.page == 'discussion-detail') {
+      //   let currentUrl = window.location.href
+      //   window.history.back()
+      //   this.props.dispatch(navigateView({view: VIEW_DISCUSSION_LIST, articleId: null}))
+      // }
   }
 
   renderVersion = (appVersion, backendVersion) => {
@@ -144,7 +145,14 @@ class App extends React.Component {
         //     <span>{title}</span>
         //  </div>
         }
+        {
+          app.view == "news" &&
+          <div className="back-link" onClick={this.showDiscussionList}>
+            <i className="fa fa-long-arrow-left"></i>
+            <span>{title}</span>
+         </div>
 
+        }
         <Header
           currentView={app.view}
           isVisible={true}

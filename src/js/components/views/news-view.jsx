@@ -71,7 +71,6 @@ const NewsView = (props) => {
       <TagSelect tags={tags} dispatch={dispatch} />
     );
   }
-
   
   const onDiscussionClick = (statement) => {
 
@@ -96,7 +95,7 @@ const NewsView = (props) => {
       <div></div>
       <div className="discussion-list-body">
         {discussions.map(discussion =>
-          undiscussion_list.includes(discussion.external_id) &&
+          undiscussion_list != null && Object.keys(undiscussion_list).includes(discussion.id.toString()) &&
           <ListDiscussionItem
             {...props}
             key={discussion.external_id}
@@ -113,6 +112,7 @@ const NewsView = (props) => {
 NewsView.propTypes = {
   discussion_list: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   discussions: PropTypes.array.isRequired,
+  // undiscussion_list: PropTypes.array.isRequired,
   user: PropTypes.object,
   discussion: PropTypes.object,
   app: PropTypes.object.isRequired,

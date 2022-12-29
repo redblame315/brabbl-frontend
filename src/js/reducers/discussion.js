@@ -1,5 +1,6 @@
 import { BOOTSTRAP, UPDATE_DISCUSSION, PROCESS_DISCUSSION_LIST, PROCESS_UNDISCUSSION_LIST,
-         UPDATE_DISCUSSION_PARTICIPANTS } from '../constants';
+         UPDATE_DISCUSSION_PARTICIPANTS, 
+         PROCESS_UNDISCUSSION_LIST_DETAIL} from '../constants';
 
 
 function discussion(state = null, action) {
@@ -40,6 +41,17 @@ function undiscussion_list(state = [], action) {
       return action.resp.undiscussion_list;
     case BOOTSTRAP:
       return action.resp.undiscussion_list;
+    default:
+      return state;
+  }
+}
+
+function undiscussion_detail_list(state = [], action) {
+  switch (action.type) {
+    case PROCESS_UNDISCUSSION_LIST_DETAIL:
+      return action.resp.undiscussion_detail_list;
+    case BOOTSTRAP:
+      return action.resp.undiscussion_detail_list;
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import translators from './translators';
 import modal from './modal';
 import alert from './alert';
 import argument from './argument';
-import { discussions, discussion, undiscussion_list, discussion_list, discussion_participants } from './discussion'; //TODO:add undiscussion_list for news [Blame 12/09]
+import { discussions, discussion, undiscussion_list, undiscussion_detail_list, discussion_list, discussion_participants } from './discussion'; //TODO:add undiscussion_list for news [Blame 12/09]
 import user from './user';
 import customer from './customer';
 import moment from 'moment';
@@ -102,6 +102,7 @@ const rootReducer = combineReducers({
   discussion,
   discussions,
   discussion_list,  
+  undiscussion_detail_list,
   undiscussion_list, //TODO:add undiscussion_list for news [Blame 12/09]
   discussion_participants,
   argument,

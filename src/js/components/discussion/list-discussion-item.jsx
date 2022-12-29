@@ -18,6 +18,48 @@ const ListDiscussionItemWrapper = (DiscussionItem) => class extends React.Compon
         {statement}
       </h3>);
   }
+
+  getNewsData()
+  {
+    let{app, discussion, undiscussion_list} = this.props;
+    let discussion_id = discussion.id.toString();
+    console.log(undiscussion_list);
+    console.log(discussion_id);
+    let news_content = "";
+    if(app.view != "news")
+      return "";
+
+    if(undiscussion_list != null)
+    {      
+      if(undiscussion_list[discussion_id] != null)
+      {
+        if(undiscussion_list[discussion_id]["new"] == true)
+          news_content += "New Discussion ";
+        
+        let keys = Object.keys(undiscussion_list[discussion_id]);
+        let statement_count = 0;
+        let argument_count = 0;
+        let vote_count = 0;
+        for(let i = 0; i < keys.length; i++)
+        {
+          if(undiscussion_list[discussion_id][keys[i]]["new"] == true)
+            statement_count ++;
+          if(undiscussion_list[discussion_id][keys[i]]["vote"] == true)
+            vote_count ++;
+          if(undiscussion_list[discussion_id][keys[i]]["argument"] != null)
+            argument_count += undiscussion_list[discussion_id][keys[i]]["argument"].length;
+        }
+        if(statement_count > 0)
+          news_content += "New Statements(" + statement_count.toString() + ") ";
+        if(argument_count > 0)
+          news_content += "New Arguments(" + argument_count.toString() + ") ";
+        if(vote_count > 0)
+          news_content += "New Votes(" + vote_count.toString() + ") ";        
+      }
+      return news_content;
+    }
+  }
+
   onDeleteDiscussion = () => {
     this.props.dispatch(showModal(MODAL_DELETE_DISCUSSION, { discussion: this.props.discussion }))
   }
@@ -99,12 +141,14 @@ const ListDiscussionItemWrapper = (DiscussionItem) => class extends React.Compon
 
   render() {
     let { discussion } = this.props;
+
     return (
       <DiscussionItem
         { ...this.props}
         statement={discussion}
         id={discussion.external_id}
         title={this.getTitle()}
+        newsData={this.getNewsData()}
         optionsList={this.getOptionsList()}
         barometerActive={!discussion.multiple_statements_allowed}
         handleStatementClick={this.handleDiscussionClick}

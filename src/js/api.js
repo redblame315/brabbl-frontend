@@ -61,14 +61,14 @@ let API = {
       .catch(() => ({ discussions: null }));
   },
 
-  //TODO:get the news from backend [Blame 12/09]
-  /*get_undiscussion_list() {
-    return API.get(urlencode`discussions/undiscussion_list`)
+  //TODO:get the news from backend [Blame]
+  get_undiscussion_list() {
+    return API.get('news/')
       .then(resp => {
         return { undiscussion_list: resp.data }
       })
       .catch(() => ({ undiscussion_list: null }));
-  },*/
+  },
 
   get_discussion(external_id) {
     if(!external_id) {
@@ -165,6 +165,7 @@ let API = {
   bootstrap(articleId = null) {
     let account,
       discussions,
+      undiscussion_detail_list,
       undiscussion_list,
       discussion,
       availableWordings,
@@ -179,16 +180,16 @@ let API = {
       })
       .then(resp => {
         account = resp;
-        undiscussion_list = [];
+        // undiscussion_list = [];
         if (account.user) {
           //TODO:get undiscussion_list for news from Backend [Blame 12/14]                    
-          console.log(account.user);
-          if(account.user.undiscussion_ids != '')
-            undiscussion_list = account.user.undiscussion_ids.split(',');
+          // console.log(account.user);
+          // if(account.user.undiscussion_ids != '')
+          //   undiscussion_list = account.user.undiscussion_ids.split(',');
           isAuthorized = true
         }
         return this.get_customer_data();
-      })
+      })      
       .then(resp => {
         customer = resp.data;
         if (isAuthorized && UserHasPermission(account.user, CAN_CHANGE_USER, customer)) {
@@ -220,6 +221,18 @@ let API = {
       })
       .then(resp => {
         availableWordings = resp.data;
+        if (isAuthorized && articleId != null) {
+              return this.get_undiscussion_list();
+            } else {              
+              return new Promise(function emptyfunc(resolve) {
+                resolve();
+              }).then(() => ({
+                undiscussion_detail_list: null,
+              }));
+            }
+      })
+      .then(resp => {
+        undiscussion_detail_list = resp.undiscussion_list;
         if (!isAuthorized && customer.is_private) {
           return new Promise(function emptyfunc(resolve) {
             resolve();
@@ -243,6 +256,18 @@ let API = {
       })
       .then(resp => {
         discussion = resp.discussion;
+        if (isAuthorized) {
+              return this.get_undiscussion_list();
+            } else {              
+              return new Promise(function emptyfunc(resolve) {
+                resolve();
+              }).then(() => ({
+                undiscussion_list: null,
+              }));
+            }
+      })
+      .then(resp => {
+        undiscussion_list = resp.undiscussion_list;
         customer.barometerOptions = availableWordings;
         return this.get_notification_wording_data(customer.notification_wording);
       })
@@ -263,7 +288,7 @@ let API = {
         customer.markdown_wording = markdown_wording;
         return this.get_tags();
       })
-      .then(resp => {
+      .then(resp => {        
         tags = resp.data;
         let url = window.location.href.split("?")[0];
         if (!isAuthorized && customer.is_private) {
@@ -281,6 +306,7 @@ let API = {
         customer: customer,
         discussions: discussions,
         discussion: discussion,
+        undiscussion_detail_list: undiscussion_detail_list,
         undiscussion_list: undiscussion_list,
         discussion_list: resp.discussion_list,        
         discussion_participants: discussion? discussion.discussion_users : null,
@@ -486,28 +512,28 @@ let API = {
     return this.get('account/invite-participant/');
   },
 
-  get_undiscussion_list()
-  {
-    console.log("get_undiscussion_list");
-    return this.get_account().then(resp => {
-      //console.log("Resonse: get_undiscussion_list");
+  // get_undiscussion_list()
+  // {
+  //   console.log("get_undiscussion_list");
+  //   return this.get_account().then(resp => {
+  //     //console.log("Resonse: get_undiscussion_list");
 
-      let account = resp;
-      let undiscussion_list = [];
-      let isAuthorized;
-      if (account.user) {
-        //TODO:get undiscussion_list for news from Backend [Blame 12/14]                    
-        console.log(account.user);
-        if(account.user.undiscussion_ids != '')
-          undiscussion_list = account.user.undiscussion_ids.split(',');
-        isAuthorized = true
-      }
+  //     let account = resp;
+  //     let undiscussion_list = [];
+  //     let isAuthorized;
+  //     if (account.user) {
+  //       //TODO:get undiscussion_list for news from Backend [Blame 12/14]                    
+  //       console.log(account.user);
+  //       if(account.user.undiscussion_ids != '')
+  //         undiscussion_list = account.user.undiscussion_ids.split(',');
+  //       isAuthorized = true
+  //     }
 
-      console.log("Resonse: get_undiscussion_list");
-      console.log(undiscussion_list);
-      return {undiscussion_list : undiscussion_list};
-    })
-  }  
+  //     console.log("Resonse: get_undiscussion_list");
+  //     console.log(undiscussion_list);
+  //     return {undiscussion_list : undiscussion_list};
+  //   })
+  // }  
 };
 
 export default API;

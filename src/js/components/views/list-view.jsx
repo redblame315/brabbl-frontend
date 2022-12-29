@@ -45,7 +45,7 @@ const sortDiscussions = (discussions) => {
 }
 
 const ListContainer = (props) => {
-  let { discussions, discussion_list,
+  let { discussions, discussion_list,undiscussion_list,
     app: { tags, discussionFilter }, dispatch, user } = props;
   let tagSelector;
   discussions = sortDiscussions(discussions)

@@ -14,12 +14,13 @@ import AvatarContainer from './avatar-container';
 
 class UserLogin extends React.Component {
 
-  onLogoutClick = () => {
+  onLogoutClick = () => {    
     API.logout();
-    this.props.dispatch(bootstrapApp());
-    this.props.dispatch(
-      showNotification(UseNotifyWording(this.props, 'notification_logout'))
-    );
+    // this.props.dispatch(bootstrapApp());
+    // this.props.dispatch(
+    //   showNotification(UseNotifyWording(this.props, 'notification_logout'))
+    // );
+    window.location.href = "/index.html";
   }
 
   onNewsClick = () => {
@@ -47,7 +48,7 @@ class UserLogin extends React.Component {
 
     let badgeLabel = 0;
     if(undiscussion_list)
-      badgeLabel = undiscussion_list.length;
+      badgeLabel = Object.keys(undiscussion_list).length;
       
     if (user) {
       newsItem = (
